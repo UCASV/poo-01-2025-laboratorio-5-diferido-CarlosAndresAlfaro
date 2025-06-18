@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" alignment="CENTER_LEFT"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.german.labo4.automovil.AddAutomovilDialogController">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+    <Label text="Agregar nuevo automóvil" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <TextField fx:id="marcaField" promptText="Marca" />
+    <TextField fx:id="modeloField" promptText="Modelo" />
+    <TextField fx:id="anioField" promptText="Año" />
+    <TextField fx:id="imageURLField" promptText="URL de imagen (opcional)" />
+    <Label fx:id="errorLabel" textFill="red" />
+    <Button fx:id="addBtn" text="Agregar" maxWidth="Infinity" />
+</VBox>
