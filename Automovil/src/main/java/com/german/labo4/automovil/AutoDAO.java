@@ -26,7 +26,6 @@ public class AutoDAO {
         }
     }
 
-    // ✅ NUEVO método para leer todos los autos
     public List<Automovil> obtenerTodosLosAutomoviles() {
         List<Automovil> lista = new ArrayList<>();
         String sql = "SELECT * FROM Automovil";
