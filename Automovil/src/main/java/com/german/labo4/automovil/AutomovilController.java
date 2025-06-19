@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AutomovilController implements Initializable {
@@ -88,4 +90,14 @@ public class AutomovilController implements Initializable {
         card.getChildren().addAll(iv, marcaLabel, modeloLabel, anioLabel, descripcion);
         return card;
     }
+
+    @FXML private TableView<Automovil> tablaAutomoviles;
+
+    @FXML
+    public void initialize() {
+        AutoDAO dao = new AutoDAO();
+        List<Automovil> lista = dao.obtenerTodosLosAutomoviles();
+        tablaAutomoviles.getItems().setAll(lista);
+    }
+
 }

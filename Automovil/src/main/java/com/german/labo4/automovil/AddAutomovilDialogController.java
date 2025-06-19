@@ -1,11 +1,9 @@
 package com.german.labo4.automovil;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class AddAutomovilDialogController {
 
@@ -29,14 +27,18 @@ public class AddAutomovilDialogController {
             String modelo = modeloField.getText().trim();
             String anio = anioField.getText().trim();
             String imageUrl = imageURLField.getText().trim();
+
             if (marca.isEmpty() || modelo.isEmpty() || anio.isEmpty()) {
-                errorLabel.setText("Todos los campos excepto URL son obligatorios.");
+                errorLabel.setText("Todos los campos son obligatorios.");
                 return;
             }
-            Automovil auto = new Automovil(marca, modelo, anio, imageUrl);
-            if (onAdd != null) onAdd.accept(auto);
-            Stage stage = (Stage) addBtn.getScene().getWindow();
-            stage.close();
+
+            Automovil automovil = new Automovil(marca, modelo, anio, imageUrl);
+            new AutoDAO().saveAutomovil(automovil);
+            if (onAdd != null) {
+                onAdd.accept(automovil);
+            }
+            addBtn.getScene().getWindow().hide();
         });
     }
 }
